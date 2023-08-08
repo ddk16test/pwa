@@ -7,6 +7,23 @@
   <link rel="canonical" href="https://ddk16test.github.io/pwa/" />
   <link rel="manifest" href="/pwa/manifest.webmanifest">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" defer></script>
+  <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+        OneSignal.init({
+        appId: "4904661f-d777-46ff-b262-3232a176c6fa",
+        });
+    });
+  </script>
+  <script>
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register (
+        '/pwa/sw.js',
+        {scope: '/pwa/'}
+      )
+    }
+  </script>
 </head>
 <body>
  
@@ -14,15 +31,7 @@
   <p>
     test for pwa.
   </p>
-
-  <script>
-      if (navigator.serviceWorker) {
-        navigator.serviceWorker.register (
-          '/pwa/sw.js',
-          {scope: '/pwa/'}
-        )
-      }
-  </script>
+  <div class="onesignal-customlink-container"></div>
   <script src="js/app.js"></script>
 </body>
 </html>
