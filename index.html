@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <script>
-    window.OneSignal = window.OneSignal || [];
-    OneSignal.push(function() {
-        OneSignal.init({
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
-        });
+      });
     });
   </script>
   <script>
