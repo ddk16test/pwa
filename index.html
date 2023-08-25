@@ -11,19 +11,19 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <script>
-    // for debug
-    // OneSignal.Debug.setLogLevel("trace");
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(function(OneSignal) {
+      // for debug
+      OneSignal.Debug.setLogLevel("trace");
       OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
       });
+      const tags = { 
+        ser: "12345678",
+        m: "kuroe"
+      };
+      OneSignal.User.addTags(tags);
     });
-    const tags = { 
-      ser: "12345678",
-      m: "kuroe"
-    };
-    OneSignal.User.addTags(tags);
   </script>
   <script>
     if (navigator.serviceWorker) {
