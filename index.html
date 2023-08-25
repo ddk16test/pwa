@@ -4,18 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  
   <title>GitHub page as PWA template</title>
   <link rel="canonical" href="https://ddk16test.github.io/pwa" />
   <link rel="manifest" href="/pwa/manifest.webmanifest">
   <link rel="stylesheet" href="css/styles.css">
 
   <script>
+    // for debug
+    // OneSignal.Debug.setLogLevel("trace");
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(function(OneSignal) {
       OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
       });
     });
+    const tags = { 
+      ser: "12345678",
+      m: "kuroe"
+    };
+    OneSignal.User.addTags(tags);
   </script>
   <script>
     if (navigator.serviceWorker) {
