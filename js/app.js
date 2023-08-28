@@ -4,5 +4,5 @@ function externalFunction() {
         m: "kuroe"
       };
     OneSignal.User.addTags(tags);
-    console.log('I am running!');
+    console.log('I am sending information.');
 }
