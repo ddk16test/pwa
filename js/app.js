@@ -1,1 +1,3 @@
-console.log('I am running!');
+function externalFunction() {
+    console.log('I am running!');
+}
