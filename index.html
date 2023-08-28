@@ -33,6 +33,15 @@
       )
     }
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      const buttonContainer = document.getElementById("buttonContainer");
+      const button = document.createElement("button");
+      button.innerText = "Click me";
+      button.onclick = externalFunction;
+      buttonContainer.appendChild(button);
+    })
+  </script>
 </head>
 <body>
  
@@ -40,6 +49,7 @@
   <p>
     test for pwa.
   </p>
+  <div id="buttonContainer"></div>
   <div class="onesignal-customlink-container"></div>
   <script src="js/app.js"></script>
 </body>
