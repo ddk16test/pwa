@@ -4,5 +4,8 @@ function externalFunction() {
         m: "kuroe"
       };
     OneSignal.User.addTags(tags);
-    console.log('I am sending information.');
+    console.log('I am sending information');
 }
+
+var param = location.search;
+document.getElementById("inputparam").value = param;
