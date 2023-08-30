@@ -6,6 +6,8 @@ if (ser !== null) {
   // for check
   document.getElementById("inputparam").value = ser;
   localStorage.setItem("ser", ser);
+} else {
+  document.getElementById("inputparam").value = "null";
 }
 
 function externalFunction() {
