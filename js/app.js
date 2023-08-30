@@ -18,9 +18,9 @@ function externalFunction() {
   localStorage.removeItem("ser");
   if (ser_local !== null) {
     tags.ser = ser_local;
-    document.getElementById("inputparam").value = ser_local;
+    document.getElementById("inputparam_send").value = ser_local;
   } else {
-    document.getElementById("inputparam").value = "null";
+    document.getElementById("inputparam_send").value = "null";
   }
   OneSignal.User.addTags(tags);
   console.log('I am sending information');
