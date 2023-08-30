@@ -18,11 +18,6 @@
       OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
       });
-      const tags = { 
-        ser: "12345678",
-        m: "kuroe"
-      };
-      OneSignal.User.addTags(tags);
     });
   </script>
   <script>
@@ -34,24 +29,27 @@
     }
   </script>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function(){
       const buttonContainer = document.getElementById("buttonContainer");
-      // ボタンを作成し、クリックイベントでexternalFunctionを実行するように設定
       const button = document.createElement("button");
       button.innerText = "Click me";
       button.onclick = externalFunction;
       buttonContainer.appendChild(button);
-    });
+    })
   </script>
 </head>
+
 <body>
- 
   <h1>PWA github pagas</h1>
   <p>
     test for pwa.
   </p>
+  <p>クエリパラメータ表示</p>
+  <div><input name="param" id="inputparam"></div>
+  <p>tag送信</p>
   <div id="buttonContainer"></div>
-  <div class="onesignal-customlink-container"></div>
+  <p>送信パラメータ表示</p>
+  <div><input name="param_send" id="inputparam_send"></div>
   <script src="js/app.js"></script>
 </body>
 </html>
