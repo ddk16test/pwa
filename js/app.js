@@ -1,5 +1,5 @@
-const DB_NAME = "myDatabase";
-const OBJECT_STORE_NAME = "myObjectStore";
+const DB_NAME = "infoDevice";
+const OBJECT_STORE_NAME = "infoDeviceStore";
 
 function externalFunction() {
   const tags = {
