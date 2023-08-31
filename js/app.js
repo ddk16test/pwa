@@ -1,5 +1,12 @@
 // var param = location.search;
 // document.getElementById("inputparam").value = param;
+const url = window.location.href
+if (url !== null) {
+  // for check
+  document.getElementById("url").value = url;
+} else {
+  document.getElementById("url").value = "null";
+}
 const searchParams = new URLSearchParams(window.location.search);
 const ser = searchParams.get("ser"); 
 if (ser !== null) {
