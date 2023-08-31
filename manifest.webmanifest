@@ -3,6 +3,7 @@
   "short_name": "PWA",
   "description": "Github Page as a Progressive Web App",
   "scope": "/pwa/",
+  "start_url": "/pwa/",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "display": "standalone", 
