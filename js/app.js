@@ -21,7 +21,7 @@ function externalFunction() {
 }
 
 function openDatabase() {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     const request = indexedDB.open(DB_NAME, 1);
 
     request.onsuccess = (event) => {
