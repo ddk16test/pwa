@@ -5,11 +5,13 @@ function externalFunction() {
   const tags = {
     m: "kuroe"
   };
-  //var ser_local = localStorage.getItem("ser");
-  //localStorage.removeItem("ser");
+  var ser_local = localStorage.getItem("ser");
+  localStorage.removeItem("ser");
+  /*
   (async () => {
     const ser_local = await getValue("ser");
   })();
+  */
   if (ser_local !== null) {
     tags.ser = ser_local;
     document.getElementById("inputparam_send").value = ser_local;
@@ -19,7 +21,7 @@ function externalFunction() {
   OneSignal.User.addTags(tags);
   console.log('I am sending information');
 }
-
+/*
 function openDatabase() {
   return new Promise(async (resolve, reject) => {
     const request = indexedDB.open(DB_NAME, 1);
@@ -64,7 +66,7 @@ function getValue(key) {
     };
   });
 }
-
+*/
 const url = window.location.href
 if (url !== null) {
   // for check
@@ -77,10 +79,12 @@ const ser = searchParams.get("ser");
 if (ser !== null) {
   // for check
   document.getElementById("inputparam").value = ser;
-  //localStorage.setItem("ser", ser);
+  localStorage.setItem("ser", ser);
+  /*
   (async () => {
     await saveValue("ser", ser);
   })();
+  */
 } else {
   document.getElementById("inputparam").value = "null";
 }
