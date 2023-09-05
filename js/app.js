@@ -5,7 +5,7 @@ function saveValue(dict_save) {
   var idbreq = indexedDB.open(DB_NAME, 1);
   idbreq.onupgradeneeded = function (event) {
     var db = event.target.result;
-    var dbStore = db.createObjectStore(OBJECT_STORE_NAME, {keyPath: "id"});
+    var dbStore = db.createObjectStore(OBJECT_STORE_NAME, {keyPath: "infoDevice"});
 
     dbStore.add(dict_save);
   }
@@ -24,7 +24,7 @@ function getValue() {
     dbStore.openCursor().onsuccess = function (event) {
       var cursor = event.target.result;
       if (cursor) {
-        console.log("id:" + cursor.key + " ser: " + cursor.value.ser);
+        console.log("id:" + cursor.key + " ser: " + cursor.value);
         list_get.push(cursor.value)        
         cursor.continue();
       }
@@ -38,7 +38,7 @@ function externalFunction() {
     m: "kuroe"
   };
   var dict_info = getValue();
-  var ser_local = dict_info["ser"];
+  var ser_local = dict_info["infoDevice"];
   console.log("dict_info");
   console.log("dict_info[ser] = %s", dict_info["ser"]);
   console.log("ser_local");
