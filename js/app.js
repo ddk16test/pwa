@@ -41,8 +41,8 @@ function getValue() {
   var idbreq = indexedDB.open(DB_NAME, 1);
   var dict_get = {};
 
-  idbReq.onsuccess = function (event) {
-    var db = idbReq.result;
+  idbreq.onsuccess = function (event) {
+    var db = idbreq.result;
 
     var transaction = db.transaction(OBJECT_STORE_NAME, "readwrite");
     var dbStore = transaction.objectStore(OBJECT_STORE_NAME);
