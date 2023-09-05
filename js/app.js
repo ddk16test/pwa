@@ -13,7 +13,7 @@ function saveValue(dict_save) {
 
 function getValue() {
   var idbreq = indexedDB.open(DB_NAME, 1);
-  var list_get = [];
+  var value;
 
   idbreq.onsuccess = function (event) {
     var db = idbreq.result;
@@ -25,24 +25,20 @@ function getValue() {
       var cursor = event.target.result;
       if (cursor) {
         console.log("id:" + cursor.key + " ser: " + cursor.value.ser);
-        list_get.push(cursor.value);        
+        value = cursor.value.ser;       
         cursor.continue();
       }
     };
   }
-  console.log("list_get[0].ser: " + list_get[0].ser);
-  return list_get[0];
+  console.log("list_get[0].ser: " + value);
+  return value;
 }
 
 function externalFunction() {
   const tags = {
     m: "kuroe"
   };
-  var dict_info = getValue();
-  var ser_local = dict_info.ser;
-  console.log("dict_info");
-  console.log("dict_info[ser] = %s", dict_info.ser);
-  console.log("ser_local");
+  var ser_local = getValue();
   console.log("ser_local = %s", ser_local);
 
   if (ser_local !== null) {
