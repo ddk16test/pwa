@@ -25,7 +25,7 @@ function getValue() {
       var cursor = event.target.result;
       if (cursor) {
         console.log("id:" + cursor.key + " ser: " + cursor.value.ser);
-        list_get.push(cursor.value)        
+        list_get.push(cursor.value);        
         cursor.continue();
       }
     };
