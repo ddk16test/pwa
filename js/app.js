@@ -1,27 +1,6 @@
 const DB_NAME = "infoDevice";
 const OBJECT_STORE_NAME = "infoDeviceStore";
 
-function externalFunction() {
-  const tags = {
-    m: "kuroe"
-  };
-  var dict_info = getValue();
-  var ser_local = dict_info["ser"];
-  console.log("dict_info");
-  console.log("dict_info[ser] = %s", dict_info["ser"]);
-  console.log("ser_local");
-  console.log("ser_local = %s", ser_local);
-
-  if (ser_local !== null) {
-    tags.ser = ser_local;
-    document.getElementById("inputparam_send").value = ser_local;
-  } else {
-    document.getElementById("inputparam_send").value = "null";
-  }
-  OneSignal.User.addTags(tags);
-  console.log('I am sending information');
-}
-
 function saveValue(dict_save) {
   var idbreq = indexedDB.open(DB_NAME, 1);
   idbreq.onupgradeneeded = function (event) {
@@ -52,6 +31,27 @@ function getValue() {
     };
   }
   return dict_get;
+}
+
+function externalFunction() {
+  const tags = {
+    m: "kuroe"
+  };
+  var dict_info = getValue();
+  var ser_local = dict_info["ser"];
+  console.log("dict_info");
+  console.log("dict_info[ser] = %s", dict_info["ser"]);
+  console.log("ser_local");
+  console.log("ser_local = %s", ser_local);
+
+  if (ser_local !== null) {
+    tags.ser = ser_local;
+    document.getElementById("inputparam_send").value = ser_local;
+  } else {
+    document.getElementById("inputparam_send").value = "null";
+  }
+  OneSignal.User.addTags(tags);
+  console.log('I am sending information');
 }
 
 /*
