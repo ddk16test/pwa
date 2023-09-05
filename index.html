@@ -11,7 +11,11 @@
     var ua = window.navigator.userAgent.toLowerCase();
     var manifest = document.createElement("link");
     manifest.rel = "manifest";
-    if (ua.indexOf("safari") !== -1) {
+
+    if (ua.indexOf("msie") !== -1 || userAgent.indexOf("trident") !== -1 || ua.indexOf("edg") !== -1 || ua.indexOf("chrome")) {
+      manifest.href = "/pwa/manifest.webmanifest";
+      console.log("Not safari");
+    } else if (ua.indexOf("safari") !== -1) {
       manifest.href = "/pwa/manifest_iPhone.webmanifest";
       console.log("Safari");
     } else {
