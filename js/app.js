@@ -2,7 +2,7 @@ const DB_NAME = "infoDevice";
 const OBJECT_STORE_NAME = "infoDeviceStore";
 
 function externalFunction() {
-  const pretags = {
+  const tags = {
     m: "kuroe"
   };
   var dict_info = getValue();
