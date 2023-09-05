@@ -1,6 +1,5 @@
 const DB_NAME = "infoDevice";
 const OBJECT_STORE_NAME = "infoDeviceStore";
-var ser_global = null;
 
 function saveValue(dict_save) {
   var idbreq = indexedDB.open(DB_NAME, 1);
@@ -11,15 +10,14 @@ function saveValue(dict_save) {
     dbStore.add(dict_save);
   }
 }
-
+/*
 function getValue() {
   var idbreq = indexedDB.open(DB_NAME, 1);
-  var value;
 
   idbreq.onsuccess = function (event) {
     var db = idbreq.result;
 
-    var transaction = db.transaction(OBJECT_STORE_NAME, "readwrite");
+    var transaction = db.transaction(OBJECT_STORE_NAME, "readonly");
     var dbStore = transaction.objectStore(OBJECT_STORE_NAME);
 
     dbStore.openCursor().onsuccess = function (event) {
@@ -32,22 +30,39 @@ function getValue() {
     }
   }
 }
-
+*/
 function externalFunction() {
   const tags = {
     m: "kuroe"
   };
-  getValue();
-  console.log("ser_global = %s", ser_global);
+  var idbreq = indexedDB.open(DB_NAME, 1);
 
-  if (ser_global !== null) {
-    tags.ser = ser_global;
-    document.getElementById("inputparam_send").value = ser_global;
-  } else {
-    document.getElementById("inputparam_send").value = "null";
+  idbreq.onsuccess = function (event) {
+    var db = idbreq.result;
+
+    var transaction = db.transaction(OBJECT_STORE_NAME, "readwrite");
+    var dbStore = transaction.objectStore(OBJECT_STORE_NAME);
+
+    dbStore.openCursor().onsuccess = function (event) {
+      var cursor = event.target.result;
+      if (cursor) {
+        console.log("id:" + cursor.key + " ser: " + cursor.value.ser);
+
+        if ((cursor.value.ser !== null) && (cursor.value.ser !== undefined)) {
+          tags.ser = cursor.value.ser;
+          document.getElementById("inputparam_send").value = cursor.value.ser;
+          tags.ser = cursor.value.ser;
+        } else {
+          document.getElementById("inputparam_send").value = "null";
+        }
+        OneSignal.User.addTags(tags);
+        console.log('I am sending information');
+        cursor.continue();
+      }
+    }
   }
-  OneSignal.User.addTags(tags);
-  console.log('I am sending information');
+
+
 }
 
 /*
