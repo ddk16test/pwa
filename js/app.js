@@ -5,7 +5,7 @@ function saveValue(dict_save) {
   var idbreq = indexedDB.open(DB_NAME, 1);
   idbreq.onupgradeneeded = function (event) {
     var db = event.target.result;
-    var dbStore = db.createObjectStore(OBJECT_STORE_NAME, {keyPath: "infoDevice"});
+    var dbStore = db.createObjectStore(OBJECT_STORE_NAME, {keyPath: "ser"});
 
     dbStore.add(dict_save);
   }
