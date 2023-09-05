@@ -1,5 +1,6 @@
 const DB_NAME = "infoDevice";
 const OBJECT_STORE_NAME = "infoDeviceStore";
+var ser_global = null;
 
 function saveValue(dict_save) {
   var idbreq = indexedDB.open(DB_NAME, 1);
@@ -25,25 +26,23 @@ function getValue() {
       var cursor = event.target.result;
       if (cursor) {
         console.log("id:" + cursor.key + " ser: " + cursor.value.ser);
-        value = cursor.value.ser;       
+        ser_global = cursor.value.ser;       
         cursor.continue();
       }
-    };
+    }
   }
-  console.log("list_get[0].ser: " + value);
-  return value;
 }
 
 function externalFunction() {
   const tags = {
     m: "kuroe"
   };
-  var ser_local = getValue();
-  console.log("ser_local = %s", ser_local);
+  getValue();
+  console.log("ser_global = %s", ser_global);
 
-  if (ser_local !== null) {
-    tags.ser = ser_local;
-    document.getElementById("inputparam_send").value = ser_local;
+  if (ser_global !== null) {
+    tags.ser = ser_global;
+    document.getElementById("inputparam_send").value = ser_global;
   } else {
     document.getElementById("inputparam_send").value = "null";
   }
