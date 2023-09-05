@@ -2,11 +2,16 @@ const DB_NAME = "infoDevice";
 const OBJECT_STORE_NAME = "infoDeviceStore";
 
 function externalFunction() {
-  const tags = {
+  const pretags = {
     m: "kuroe"
   };
+  var dict_info = getValue();
+  var ser_local = dict_info["ser"];
+  //const tags = Object.assign(pretags, dict_info);
+  /*
   var ser_local = localStorage.getItem("ser");
   localStorage.removeItem("ser");
+  */
   /*
   (async () => {
     const ser_local = await getValue("ser");
@@ -21,6 +26,38 @@ function externalFunction() {
   OneSignal.User.addTags(tags);
   console.log('I am sending information');
 }
+
+function saveValue(dict_save) {
+  var idbreq = indexedDB.open(DB_NAME, 1);
+  idbreq.onupgradeneeded = function (event) {
+    var db = event.target.result;
+    var dbStore = db.createObjectStore(OBJECT_STORE_NAME, {keyPath: "ser"});
+
+    dbStore.add(dict_save);
+  }
+}
+
+function getValue() {
+  var idbreq = indexedDB.open(DB_NAME, 1);
+  var dict_get = {};
+
+  idbReq.onsuccess = function (event) {
+    var db = idbReq.result;
+
+    var transaction = db.transaction(OBJECT_STORE_NAME, "readwrite");
+    var dbStore = transaction.objectStore(OBJECT_STORE_NAME);
+
+    dbStore.openCursor().onsuccess = function (event) {
+      var cursor = event.target.result;
+      if (cursor) {
+          dict_get[cursor.key] = cursor.value.text;
+          cursor.continue();
+      }
+    };
+  }
+  return dict_get;
+}
+
 /*
 function openDatabase() {
   return new Promise(async (resolve, reject) => {
@@ -79,7 +116,10 @@ const ser = searchParams.get("ser");
 if (ser !== null) {
   // for check
   document.getElementById("inputparam").value = ser;
-  localStorage.setItem("ser", ser);
+  const dict_ser = {};
+  dict_ser["ser"] = ser;
+  saveValue(dict_ser);
+  //localStorage.setItem("ser", ser);
   /*
   (async () => {
     await saveValue("ser", ser);
