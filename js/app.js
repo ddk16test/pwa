@@ -6,7 +6,9 @@ function externalFunction() {
     m: "kuroe"
   };
   var dict_info = getValue();
+  console.log("dict_info[ser] = %s\n", dict_info["ser"]);
   var ser_local = dict_info["ser"];
+  console.log("ser_local = %s\n", ser_local);
   //const tags = Object.assign(pretags, dict_info);
   /*
   var ser_local = localStorage.getItem("ser");
