@@ -45,8 +45,9 @@ function getValue() {
     dbStore.openCursor().onsuccess = function (event) {
       var cursor = event.target.result;
       if (cursor) {
-          dict_get[cursor.key] = cursor.value.text;
-          cursor.continue();
+        console.log("id_str:" + cursor.key + " Text: " + cursor.value.text);
+        dict_get[cursor.key] = cursor.value;
+        cursor.continue();
       }
     };
   }
