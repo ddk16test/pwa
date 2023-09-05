@@ -30,6 +30,7 @@ function getValue() {
       }
     };
   }
+  console.log("list_get[0].ser: " + list_get[0].ser);
   return list_get[0];
 }
 
