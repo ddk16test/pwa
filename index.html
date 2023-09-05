@@ -7,7 +7,17 @@
   
   <title>GitHub page as PWA template</title>
   <link rel="canonical" href="https://ddk16test.github.io/pwa" />
-  <link rel="manifest" href="/pwa/manifest.webmanifest">
+  <script>
+    var ua = window.navigator.userAgent.toLowerCase();
+    var manifest = document.createElement("link");
+    manifest.rel = "manifest";
+    if (ua.indexOf("iphoe") !== -1) {
+      manifest.href = "/pwa/manifest_iPhone.webmanifest";
+    } else {
+      manifest.href = "/pwa/manifest.webmanifest";
+    }
+    document.head.appendChild(manifest);
+  </script>
   <link rel="stylesheet" href="css/styles.css">
 
   <script>
