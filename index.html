@@ -12,7 +12,7 @@
     var manifest = document.createElement("link");
     manifest.rel = "manifest";
 
-    if (ua.indexOf("msie") !== -1 || userAgent.indexOf("trident") !== -1 || ua.indexOf("edg") !== -1 || ua.indexOf("chrome")) {
+    if (ua.indexOf("msie") !== -1 || userAgent.indexOf("trident") !== -1 || ua.indexOf("edg") !== -1 || ua.indexOf("chrome") !== -1) {
       manifest.href = "/pwa/manifest.webmanifest";
       console.log("Not safari");
     } else if (ua.indexOf("safari") !== -1) {
