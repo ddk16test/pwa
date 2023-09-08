@@ -26,16 +26,7 @@
   </script>
   <link rel="stylesheet" href="css/styles.css">
 
-  <script>
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    OneSignalDeferred.push(function(OneSignal) {
-      // for debug
-      OneSignal.Debug.setLogLevel("trace");
-      OneSignal.init({
-        appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
-      });
-    });
-  </script>
+  <script src="js/webpush.js"></script>
   <script>
     if (navigator.serviceWorker) {
       navigator.serviceWorker.register (
