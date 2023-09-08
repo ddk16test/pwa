@@ -13,13 +13,13 @@ OneSignalDeferred.push(function(OneSignal) {
     OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
     });
-    OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
+    OneSignal.Notifications.addEventListener("permissionChange", sendInfoDevice);
 });
 
 // 通知許可イベントリスナー
 // 登録処理と同時にタグ送信するためsleep挟む必要あるか
 
-function permissionChangeListener(permission) {
+function sendInfoDevice(permission) {
     console.log("change permission.");
     if (permission) {
         const tags = {
@@ -34,9 +34,4 @@ function permissionChangeListener(permission) {
         OneSignal.User.addTags(tags);
         console.log('I am sending information');
     }
-}
-  
-function subscribeEventListener(evnet) {
-    console.log("open subscribe prompt.");
-    OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 }
