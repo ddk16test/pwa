@@ -11,6 +11,7 @@ OneSignalDeferred.push(function(OneSignal) {
         // for check
         localStorage.setItem("ser", ser_save);
     }
+    OneSignal.Notifications.addEventListener("permissionPromptDisplay", subscribeEventListener);
 });
 
 // 通知許可イベントリスナー
@@ -35,5 +36,3 @@ function subscribeEventListener(evnet) {
     console.log("open subscribe prompt.");
     OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 }
-  
-OneSignal.Notifications.addEventListener("permissionPromptDisplay", subscribeEventListener);
