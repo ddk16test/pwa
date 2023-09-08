@@ -19,7 +19,7 @@ OneSignalDeferred.push(async function(OneSignal) {
 // 通知許可イベントリスナー
 // 登録処理と同時にタグ送信するためsleep挟む必要あるか
 
-function permisssionChangeListener(permission) {
+function permissionChangeListener(permission) {
     console.log("change permission.");
     if (permission) {
         const tags = {
