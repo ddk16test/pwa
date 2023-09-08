@@ -7,18 +7,19 @@ if (ser_save !== null) {
 }
 
 window.OneSignalDeferred = window.OneSignalDeferred || [];
-OneSignalDeferred.push(function(OneSignal) {
+OneSignalDeferred.push(async function(OneSignal) {
     // for debug
     OneSignal.Debug.setLogLevel("trace");
-    OneSignal.init({
+    await OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
     });
-    //OneSignal.Notifications.addEventListener("permissionPromptDisplay", subscribeEventListener);
 });
 
 // 通知許可イベントリスナー
 // 登録処理と同時にタグ送信するためsleep挟む必要あるか
+
 function permisssionChangeListener(permission) {
+    console.log("change permission.");
     if (permission) {
         const tags = {
             m: "kuroe"
