@@ -30,3 +30,20 @@ if (ser !== null) {
 } else {
   document.getElementById("inputparam").value = "null";
 }
+
+
+// 通知許可イベントリスナー
+// 登録処理と同時にタグ送信するためsleep挟む必要あるか
+function permisssionChangeListener(permission) {
+  if (permission) {
+    console.log("permission accepted.");
+    externalFunction();
+  }
+}
+
+function subscribeEventListener(evnet) {
+  console.log("open subscribe prompt.");
+  OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
+}
+
+OneSignal.Notifications.addEventListener("permissionPromptDisplay", subscribeEventListener);
