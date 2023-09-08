@@ -13,6 +13,7 @@ OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
     });
+    OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
 });
 
 // 通知許可イベントリスナー
