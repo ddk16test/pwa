@@ -1,3 +1,4 @@
+/*
 function externalFunction() {
   const tags_app = {
     m: "kuroe"
@@ -13,7 +14,7 @@ function externalFunction() {
   OneSignal.User.addTags(tags_app);
   console.log('I am sending information');
 }
-
+*/
 const url = window.location.href
 if (url !== null) {
   // for check

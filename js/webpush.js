@@ -7,10 +7,10 @@ if (ser_save !== null) {
 }
 
 window.OneSignalDeferred = window.OneSignalDeferred || [];
-OneSignalDeferred.push(async function(OneSignal) {
+OneSignalDeferred.push(function(OneSignal) {
     // for debug
     OneSignal.Debug.setLogLevel("trace");
-    await OneSignal.init({
+    OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
     });
     OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
