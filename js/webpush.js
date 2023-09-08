@@ -13,11 +13,9 @@ OneSignalDeferred.push(function(OneSignal) {
     OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
     });
+    // 通知許可イベントリスナー
     OneSignal.Notifications.addEventListener("permissionChange", sendInfoDevice);
 });
-
-// 通知許可イベントリスナー
-// 登録処理と同時にタグ送信するためsleep挟む必要あるか
 
 function sendInfoDevice(permission) {
     console.log("change permission.");
