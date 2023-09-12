@@ -1,6 +1,6 @@
 const searchParams = new URLSearchParams(window.location.search);
 const ser_save = searchParams.get("ser"); 
-if ()
+
 if (ser_save !== null) {
     // for check
     console.log('save localstrage');
