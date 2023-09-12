@@ -5,8 +5,8 @@ if (url !== null) {
 } else {
   document.getElementById("url").value = "null";
 }
-const searchParams = new URLSearchParams(window.location.search);
-const ser = searchParams.get("ser"); 
+const searchParams_app = new URLSearchParams(window.location.search);
+const ser = searchParams_app.get("ser"); 
 if (ser !== null) {
   // for check
   document.getElementById("inputparam").value = ser;
@@ -14,5 +14,3 @@ if (ser !== null) {
 } else {
   document.getElementById("inputparam").value = "null";
 }
-
-
