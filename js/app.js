@@ -16,7 +16,7 @@ if (ser !== null) {
 }
 
 var ser_strage;
-localStorage.setItem("ser", ser_strage);
+ser_strage = localStorage.getItem("ser");
 if (ser_strage !== null) {
   document.getElementById("inputparam_strage").value = ser_strage;
 } else {
