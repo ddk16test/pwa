@@ -1,6 +1,6 @@
 {
   "name": "Github PWA",
-  "short_name": "PWA",
+  "short_name": "AtermWebpush",
   "description": "Github Page as a Progressive Web App",
   "scope": "/pwa/",
   "background_color": "#ffffff",
