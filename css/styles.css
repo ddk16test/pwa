@@ -9,13 +9,17 @@ body {
     background-size: 20vh;
 }
 h1 {
-    font-size: 1.5em;
+    font-size: 3.0em;
     font-weight: normal;
     margin: 0;
     padding: 0;
 }
+h2 {
+    margin-top: 3.0em;
+}
 p {
-    width: 80vw;
+    font-size: 1.4em;
+    width: 120vw;
 }
 a {
     color: #369;
