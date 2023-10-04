@@ -1,4 +1,4 @@
-const url = window.location.href
+const url = window.location.href;
 if (url !== null) {
   // for check
   document.getElementById("url").value = url;
@@ -35,7 +35,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Update UI notify the user they can install the PWA
   showInstallPromotion();
   // Optionally, send analytics event that PWA install promo was shown.
-  console.log(`'beforeinstallprompt' event was fired.`);
+  console.log('beforeinstallprompt event was fired.');
 });
 
 buttonInstall.addEventListener('click', async () => {
@@ -46,7 +46,7 @@ buttonInstall.addEventListener('click', async () => {
   // Wait for the user to respond to the prompt
   const { outcome } = await deferredPrompt.userChoice;
   // Optionally, send analytics event with outcome of user choice
-  console.log(`User response to the install prompt: ${outcome}`);
+  console.log('User response to the install prompt');
   // We've used the prompt, and can't use it again, throw it away
   deferredPrompt = null;
 });
