@@ -5,8 +5,6 @@ body {
     margin: 0;
     padding: 2em;
     height: 90vh;
-    background: url(../img/icon-192.png) 95% 95% no-repeat;
-    background-size: 20vh;
 }
 h1 {
     font-size: 3.0em;
