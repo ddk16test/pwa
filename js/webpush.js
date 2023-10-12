@@ -10,7 +10,7 @@ if (ser_save !== null) {
 window.OneSignalDeferred = window.OneSignalDeferred || [];
 OneSignalDeferred.push(function(OneSignal) {
     // for debug
-    // OneSignal.Debug.setLogLevel("trace");
+    OneSignal.Debug.setLogLevel("trace");
     OneSignal.init({
         appId: "705dab8a-f3d1-4837-9932-708d34189bd5",
     });
