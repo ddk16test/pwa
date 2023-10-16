@@ -23,6 +23,7 @@ if (ser_strage !== null) {
   //document.getElementById("inputparam_strage").value = "null";
 }
 
+/*
 let deferredPrompt;
 const buttonInstall = document.getElementById("installButton");
 
@@ -55,3 +56,4 @@ window.addEventListener('appinstalled', (event) => {
   // deferredPrompt をクリアしてガベージコレクションを行えるようにする
   window.deferredPrompt = null;
 });
+*/
